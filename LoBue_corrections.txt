@@ -1,0 +1,30 @@
+Troy LoBue's corrections for Capstone Project 2
+
+1. "Error when no file and aborts 0/5"
+
+Question#1: (5pts) When the script is executed, it should require a command argument of the input fasta file. 
+A sanity check should be performed to ensure the user has included the fasta file on the command line when executing the script. 
+If not, it should print an error instructing the user to include the filename when executing the script and abort.
+
+Corrction: The reason my script was not terminating after recognizing the wrong number of arguements
+was because I did not have the "exit" command in the loop. Since I changed the condition to != 1 (not equal) 
+I can say exit which will terinate the script if the condition is not met which is what we want.
+
+
+2. "Num sequences variable 0/2"
+
+Question#3: (2 pts) Following these successful sanity checks, setup a command to calculate the number of sequences in the input fasta file.
+Then, make a variable to hold this number. Hint: Look back at Lab#1 at an easy way to perform this calculation. 
+
+Correction: My sequence number variable was not working correctly because I was not explicitely removing the header from the sequence. Using the grep and sed combo
+replaces the > charcter in the heading and also we move the headers and sequences into isolated files. This allows us to use the temporary files until the end of the 
+loop at which point we can remove the temporary files. 
+
+3. "Made empty file (touch) 0/2"
+
+Question#4: The script should use a command to create an empty file called GCcount.txt (2 pts). 
+The script should print a header to this output file containing two columns: 1) “Sequence name” and 2) “GC Percentage” (3 pts).
+
+Correction: My script echoed the header to the created GCcount text file. I used touch to create this file and the header was 
+created with the echo command. The data was then appended to the table under the header. 
+
